@@ -1,0 +1,100 @@
+.video-link {
+    cursor: pointer;
+}
+
+.menu {
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+    .btn {
+        margin-right: .25rem;
+        border-radius: 10px;
+        height: 20px;
+        line-height: 0px;
+        background-color: transparent;
+        border: 1px solid #243565;
+        font-size:10px;
+        font-weight: 600;
+        &:hover,&.active {
+            background-color: #243565;
+        }
+    }
+}
+
+.get-more-videos {
+    &.btn-primary {
+        background: #243565;
+        border: 1px solid #243565;
+    }
+}
+.title-main {
+    font-size: 15px;
+    font-weight: 700;
+}
+.tag-item {
+    color: #2A5BAD;
+    font-weight: 700;
+    font-size: 10px;
+}
+
+.track-control {
+    cursor: pointer;
+    position: absolute;
+    top: 120px;
+    z-index: 10;
+    &.track-left {
+        left: -70px;
+    }
+    &.track-right {
+        right: -70px;
+    }
+}
+
+a.page {
+    &:first-child {
+        margin-left: 1rem;
+    }
+    &.selected {
+        text-decoration: underline;
+    }
+    margin-right: 1rem;
+}
+
+%border {
+    border-radius: 8px;
+    border:0;
+}
+
+iframe {
+    cursor: pointer;
+    width: 100%;
+    @extend %border;
+    background: black;
+    &.main-video {
+        height: 720px;
+    }
+}
+
+.videos-wrapper {
+    position:relative;
+    overflow: hidden;
+    overflow-x:auto;
+    min-height: 250px;
+
+    .videos-track {
+        position: absolute;
+        width: 350%;
+        display: flex;
+    }
+}
+
+.video-card {
+    width: 320px;
+    img {width: 100%;}
+    cursor: pointer;
+    transition: width 0.5s;
+    margin-right: 1rem;
+    &:hover {
+        width:480px; 
+    }
+}

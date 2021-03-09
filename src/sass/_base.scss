@@ -1,0 +1,57 @@
+.app {
+    min-height: 1200px;
+    .main{
+      max-width: 1300px;   
+    }
+}
+
+
+.logo {
+    width: 120px;
+}
+.row {
+    margin-left: 0;
+    margin-right:0;
+}
+.logo-secondary {
+    font-size: 1.4rem;
+    padding-left: 10px;
+    font-style: italic;
+    position: relative;
+    top: 8px;
+}
+.logo {
+    width: 120px;
+    height: 62px;
+}
+
+.toggle {
+    display: inline-block;
+    height: 30px;
+    width: 56px;
+    border-radius: 50px;
+    background-color: #c4c4c4;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+    
+    .switch {
+        background-color: #fff;
+        display: inline-block;
+        height: 29px;
+        width: 29px;
+        position: absolute;
+        box-shadow: 0px 0px 2px 1px #1f1f1f;
+        right: calc(100% - 29px);
+        border-radius: 100%;
+        transition: right .15s;
+    }
+    .switch.on {
+        right: 0%;
+        background-color: #fff;
+    }
+}
+
+.top-shelf {
+    box-shadow: 1px 1px 1px 1px #c4c4c4;
+}

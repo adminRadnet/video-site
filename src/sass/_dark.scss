@@ -1,0 +1,30 @@
+$btn-dark: #2f2f2f;
+
+.dark {
+    background-color: #2f302f;
+    color: #fff;
+    a {
+        color: #fff;
+    }
+    height: 100%;
+
+    .top-shelf {
+        background-color: #1f201f;
+    }
+
+    .menu {
+        .btn {
+            border: 1px solid #fff;
+            color: white;
+            &:hover,&.active {
+                background-color: #243565;
+            }
+        }
+    }
+
+    .tag-item {
+        color: white;
+        font-weight: 300;
+        font-style: italic;
+    }
+}

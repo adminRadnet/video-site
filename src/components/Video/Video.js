@@ -1,23 +1,17 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 
 const Video = ({ video = {}, isIframe = false }) => {
-
+  
   const getVideoId = (link) => {
     const retlink = link ? link.split("https://vimeo.com/")[1].split("/")[0] : "";
     return retlink;
   };
 
-  const out = isIframe ? (
-    <iframe
-      title="video-player"
-      className="main-video"
-      src={`https://player.vimeo.com/video/${getVideoId(
-        video.link
-      )}?autoplay=1`}
-      allowFullScreen
-    />
-  ) : (
+  const out = (
     <div className="video-card">
+      {/* {make a key val pair w/js} */}
+      <Link to={`/video/${video.permalink}`}>
        <img alt="video" src={`${video.pictures.sizes[5].link}`} />
        {video.tags
         ? video.tags.map((tag, id) => (
@@ -28,6 +22,7 @@ const Video = ({ video = {}, isIframe = false }) => {
           ))
         : ""}{" "}
       <p className="title-main mt-2"> {video.name} </p>{" "}
+      </Link>
     </div>
   );
 

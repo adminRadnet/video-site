@@ -1,74 +1,19 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
-import _ from "lodash";
 
 import { Container, Row, Col, Card, Button, Carousel } from "react-bootstrap";
-import Spinner from "../Spinner";
+
 import VideoTrack from "../VideoTrack";
 
-import {
-  getVideos,
-  setVideo,
-  loading,
-  getFilters,
-  setFilter,
-} from "../../actions";
+import placeholder from '../../images/placeholder.svg'
 
-const Home = ({darkMode}) => {
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getVideos());
-    dispatch(getFilters());
-  }, [dispatch]);
-
-  const getVideoById = (id, videos) =>
-    videos.find((video) => video.uri === `/videos/${id}`);
-
-  let videos = useSelector((state) => state.allVideos, shallowEqual);
-  let total = useSelector((state) => state.total, shallowEqual);
-  let last = useSelector((state) => state.last, shallowEqual);
-  let next = useSelector((state) => state.next, shallowEqual) ? true : false;
-  let prev = useSelector((state) => state.prev, shallowEqual) ? true : false;
-  let pageNo = useSelector((state) => state.pageNo, shallowEqual);
-
-  //filter the videos
-  let currentVideo = useSelector((state) => state.currentVideo, shallowEqual); //returns an id
-
-  let videoData = currentVideo ? getVideoById(currentVideo, videos) : videos[0];
-
-  const isLoading = useSelector((state) => state.isLoading);
-  const filters = useSelector((state) => state.filterData);
-  const currentFilter = useSelector((state) => state.currentFilter);
-
-  //Pagination
-  const paginationOut = [];
-  _.times(last, (i) => {
-    paginationOut.push(
-      <a
-        className={`page ${pageNo === i + 1 ? "selected" : ""}`}
-        href=""
-        id={i}
-        key={i}
-        onClick={(e) => {
-          e.preventDefault();
-          dispatch(loading());
-          dispatch(getVideos(i + 1, currentFilter));
-          window.scroll(0, 0);
-        }}
-      >
-        {i + 1}
-      </a>
-    );
-  });
-
+const Home = ({videos, darkMode}) => {
   return (
     <>
       <Carousel>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/placeholder.svg"
+            src={placeholder}
             alt="First slide"
           />
           <Carousel.Caption>
@@ -79,7 +24,7 @@ const Home = ({darkMode}) => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/placeholder.svg"
+            src={placeholder}
             alt="Second slide"
           />
 
@@ -91,7 +36,7 @@ const Home = ({darkMode}) => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/placeholder.svg"
+            src={placeholder}
             alt="Third slide"
           />
 
@@ -109,7 +54,7 @@ const Home = ({darkMode}) => {
         <VideoTrack title={"Patients"} videos={videos} />
         <VideoTrack title={"Here For You"} videos={videos} />
       </Container>
-      <Container className="">
+      {/* <Container className="">
         <Row>
           <Col className="mt-4 mb-4 text-center">
             {prev ? (
@@ -147,7 +92,7 @@ const Home = ({darkMode}) => {
             )}
           </Col>
         </Row>
-      </Container>
+      </Container> */}
     </>
   );
 };

@@ -30,5 +30,11 @@ $btn-dark: #2f2f2f;
 
     .search-results {
         background: #2f302f;
+        box-shadow: 5px 10px 5px rgba(255,255,255, 0.1);
+        
+        li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+        }
     }
 }

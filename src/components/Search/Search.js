@@ -13,14 +13,15 @@ const replaceSpaces = (str) => {
 const Search = () => {
 
     const searchInput = useRef()
+    const searchBox = useRef()
+
     useEffect(() => {
         /**
          * Alert if clicked on outside of element
          */
         function handleClickOutside(event) {
-            if (searchInput.current && !searchInput.current.contains(event.target)) {
+            if (searchBox.current && !searchBox.current.contains(event.target)) {
                 setResults([])
-
             }
         }
 
@@ -47,7 +48,7 @@ const Search = () => {
     return (
         <>
 
-        <div className="searches">
+        <div ref={searchBox} className="searches">
         <input onChange={handleSearch} ref={searchInput} className="mt-3 search form-control" type="text" name="Search" placeholder="Search" />
         <ul id="search-results" className={`search-results ${results.length <= 0 ? 'd-none' : ''}`}>
             {results.map(result => <li><Link onClick={()=>{setResults([]); searchInput.current.value = ""}} to={`/video/${replaceSpaces(result.name.toLowerCase())}`}>{result.name}</Link></li>)}

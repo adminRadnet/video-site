@@ -46,11 +46,15 @@ function Category(){
   return <h2>Requested category: {categoryId}</h2>
 }
 
+
+//get videos
+//get current filter
+//throw that in a video track
+
 function VideosToPlay({videos}){
   let match = useRouteMatch()
   return (
     <div>
-      <p></p>
       <Switch>
         <Route path={`${match.path}/:videoUrl`}>
           <VideoPlayer videos={videos} />

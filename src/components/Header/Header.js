@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Container, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import Search from '../Search'
+
 const Header = ({text, darkMode, setDarkMode}) => (
     <header>
         <Container fluid>
@@ -17,7 +19,7 @@ const Header = ({text, darkMode, setDarkMode}) => (
                     </ul>
                 </Col>
                 <Col sm="3">
-                    <input className="mt-3 search form-control" type="text" name="Search" placeholder="Search" />
+                    <Search />
                 </Col>
                 <Col sm="1" className="mt-3 text-right">
                 <span className="toggle" onClick={()=>setDarkMode(!darkMode)}>

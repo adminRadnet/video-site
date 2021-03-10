@@ -4,6 +4,27 @@
     box-sizing: border-box;
 
 }
+.searches {
+    position: relative;
+}
+
+.search-results {
+    position: absolute;
+    z-index: 10;
+    padding-left: 0;
+    overflow-y: auto;
+    max-height: 300px;
+    background: #fff;
+    li {
+        list-style-type: none;
+        color: #000;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #C4C4C4;
+    }
+}
 
 .dark {
     .search {

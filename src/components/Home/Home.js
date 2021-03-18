@@ -6,7 +6,8 @@ import VideoTrack from "../VideoTrack";
 import placeholder from '../../images/placeholder.svg'
 
 
-const Home = ({videos, darkMode}) => {
+const Home = ({videos, filters, darkMode}) => {
+  console.log(filters)
   return (
     <>
       <Carousel>
@@ -49,10 +50,7 @@ const Home = ({videos, darkMode}) => {
         </Carousel.Item>
       </Carousel>
       <Container className="mt-4" fluid>
-        <VideoTrack title={"Here For You"} videos={videos} />
-        <VideoTrack title={"We Are RadNet"} videos={videos} />
-        <VideoTrack title={"Patients"} videos={videos} />
-        <VideoTrack title={"Here For You"} videos={videos} />
+        {filters.map((filter, idx) => <VideoTrack key={idx} filter={filter} />)}
       </Container>
       {/* <Container className="">
         <Row>

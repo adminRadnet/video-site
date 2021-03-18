@@ -1,4 +1,5 @@
 let token = process.env.REACT_APP_VIMEO_TOKEN
+let uriToFilter = (uri) => uri.replace('/videos','').replace('/albums/','')
 
 export const getFilters = () => (dispatch) => {
   let url = "https://api.vimeo.com/me/albums"
@@ -8,12 +9,14 @@ export const getFilters = () => (dispatch) => {
     }
   }).then(data => data.json()).then(res => {
     let filteredData = res.data.filter(item => {
-      let showFilter = (item.metadata.connections.videos && item.metadata.connections.videos.total > 5)
+      let showFilter = (item.metadata.connections.videos 
+                      && item.metadata.connections.videos.total > 10
+                      && item.description
+                      && item.privacy.view === "anybody")
       if(showFilter){
         return item
       }
     }) 
-
     dispatch({
       type: 'GET_FILTERS',
       payload: filteredData
@@ -22,9 +25,13 @@ export const getFilters = () => (dispatch) => {
 
 }
 
-export const getVideos = (next=1, filter=7939056) => (dispatch) => {
-  console.log(filter)
-  let url = `https://api.vimeo.com/me/albums/${filter}/videos?page=${next}`
+export const getVideosByFilter = (uri) => (dispatch) => {
+  let url = `https://api.vimeo.com/me/`
+}
+
+
+export const getVideos = (next=1) => (dispatch) => {
+  let url = `https://api.vimeo.com/me/videos?per_page=100`
 
   fetch(url, {
     headers: {
@@ -32,6 +39,7 @@ export const getVideos = (next=1, filter=7939056) => (dispatch) => {
     }
   }).then(data => data.json()).then((res)=>{
     let videos = res.data
+
     videos = videos.filter(video => video.privacy.view === 'anybody')
     let last = res.paging.last.substr(res.paging.last.indexOf('=')+1)
     dispatch({
@@ -60,11 +68,9 @@ export const loading = () => {
 }
 
 export const setFilter = (uri='') => (dispatch) => {
-  let filter = uri.split('/albums/')[1]
-  console.log(filter)
+  let filter = uriToFilter(uri)
+  console.log('lol',filter)
   dispatch(getVideos(1, filter))
-
-
   dispatch({
     type: 'SET_FILTER',
     payload: filter

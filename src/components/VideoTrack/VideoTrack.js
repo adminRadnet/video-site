@@ -1,7 +1,24 @@
-import React, {useRef} from 'react'
+import React, {useRef, useEffect, useState} from 'react'
 import Video from '../Video'
+let token = process.env.REACT_APP_VIMEO_TOKEN
 
-const VideoTrack = ({title, videos, ...props}) => {
+const VideoTrack = ({filter, ...props}) => {
+    let title = filter.name
+    let [videos, setVideos] = useState([])
+    let uri = `https://api.vimeo.com/me${filter.metadata.connections.videos.uri}`
+    
+    useEffect(()=>{
+        fetch(uri, { 
+            headers: {
+            'Authorization': `Bearer ${token}`
+            }
+        })
+        .then(data => data.json())
+        .then(res => {
+            setVideos(res.data)
+        })    
+    }, [])
+    
     const scroll = useRef()
     let scrollStep = 500;
     return (

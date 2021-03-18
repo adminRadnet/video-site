@@ -5,6 +5,7 @@ import thunkMiddleware from 'redux-thunk'
 
 let store
 
+//should go to component level
 const initialState = {
   allVideos: [],
   currentVideo: undefined, 

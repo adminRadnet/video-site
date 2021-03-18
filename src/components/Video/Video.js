@@ -1,17 +1,17 @@
 import React from "react";
 import {Link} from 'react-router-dom'
+import {nameToPermalink} from '../../lib/util'
 
 const Video = ({ video = {}, isIframe = false }) => {
-  
   const getVideoId = (link) => {
     const retlink = link ? link.split("https://vimeo.com/")[1].split("/")[0] : "";
     return retlink;
   };
 
+
   const out = (
     <div className="video-card">
-      {/* {make a key val pair w/js} */}
-      <Link to={`/video/${video.permalink}`}>
+     <Link to={`/video/${nameToPermalink(video.name)}`}>
        <img alt="video" src={`${video.pictures.sizes[5].link}`} />
        {video.tags
         ? video.tags.map((tag, id) => (

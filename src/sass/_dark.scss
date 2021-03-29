@@ -25,6 +25,14 @@ $btn-dark: #2f2f2f;
     .tag-item {
         color: white;
     }
+    .search {
+        background-color: transparent !important;
+        border: 1px solid #C4C4C4;
+        color: #fff !important;
+        &:focus {
+            border: 1px solid #C4C4C4;
+        }
+    }
 
     .search-results {
         background: #2f302f;

@@ -1,8 +1,13 @@
 .search {
-    width: 100%;
-    padding-left: 10px;
+    width: 100%px;
+    padding-left: 55px;
     box-sizing: border-box;
-
+    transition: all .5s;
+    background: url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+    cursor: pointer;
+    &:focus {
+        width: 100%;
+    }
 }
 .searches {
     position: relative;
@@ -42,10 +47,3 @@
     }
 }
 
-.dark {
-    .search {
-        background-color: transparent !important;
-        border: 1px solid #C4C4C4;
-        color: #fff !important;
-    }
-}

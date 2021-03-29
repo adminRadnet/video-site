@@ -29,7 +29,7 @@
 }
 .title-main {
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 500;
 }
 .tag-item {
     color: #2A5BAD;
@@ -83,7 +83,7 @@ iframe {
 
     .videos-track {
         position: absolute;
-        width: 350%;
+        width: 700%;
         display: flex;
     }
 }
@@ -92,9 +92,12 @@ iframe {
     width: 320px;
     img {width: 100%;}
     cursor: pointer;
-    transition: width 0.5s;
+    transition: width 0.3s;
     margin-right: 1rem;
+    a:hover {
+        text-decoration: none;
+    }
     &:hover {
-        width:480px; 
+        width:480px;
     }
 }

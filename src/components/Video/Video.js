@@ -16,7 +16,7 @@ const Video = ({ video = {}, isIframe = false }) => {
        {video.tags
         ? video.tags.map((tag, id) => (
             <span className="tag-item" key={id}>
-              {" "}
+              {"#"}
               {tag.tag}{" "}
             </span>
           ))

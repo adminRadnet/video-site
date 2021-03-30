@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, useHistory} from 'react-router-dom'
 import {useSelector, shallowEqual, useDispatch} from "react-redux"
-import {tryFn} from "../../lib/util"
+import {replaceSpaces, tryFn} from "../../lib/util"
 import {setFilter} from '../../actions'
-import {Container, Card} from 'react-bootstrap'
+import {Container, Card, Row, Col} from 'react-bootstrap'
+import Video from '../Video/Video'
 
 export default function Category({filterData}){
 
@@ -28,15 +29,21 @@ export default function Category({filterData}){
     let currentFilter = useSelector((state)=>state.currentFilter, shallowEqual)
     //get videos associated with filter
 
+    let history = useHistory()
+
     console.log(currentFilter, videoFilter);
     let out = (currentFilter === videoFilter.replace("/albums/",'').replace('/videos', '')) ? (
-        <div>
+        <div className="category">
             <div className="text-center">
             <h2 className="mt-5 pt-5">{categoryName}</h2>
             <p className="mt-4 mb-4">{description}</p>
             </div>
             <Container>
-                {videos.map((video, idx)=><div key={idx}>{video.name}</div>)}
+                <Row>
+                {videos.map((video, idx)=>{
+                    return <Video key={idx} video={video} isIframe={false} />
+                })}
+                </Row>
             </Container>
         </div>
     ): 'Getting Your Videos'

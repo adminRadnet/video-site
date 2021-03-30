@@ -24,7 +24,7 @@ const VideoTrack = ({filter, ...props}) => {
     return (
         <>
         <div style={{position:`relative`}}>
-            <h2 className="mt-3 mb-4">{title}</h2>
+            <h2 className="mt-5 mb-5">{title}</h2>
             <span className="carousel-control-prev-icon track-control track-left" onMouseDown={()=>{
                 let sl = scroll.current.scrollLeft;
                 if(sl - scrollStep <= 0) {

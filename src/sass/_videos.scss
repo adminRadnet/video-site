@@ -75,10 +75,28 @@ iframe {
     }
 }
 
-.videos-wrapper {
+.video-card {
+    width: 320px;
+
+    img {width: 100%;}
+    cursor: pointer;
+    transition: width 0.3s;
+    margin-right: 1rem;
+    a:hover {
+        text-decoration: none;
+    } 
+
+}
+
+.category, .playlists, .videos-wrapper {
     position:relative;
+
+
+}
+
+.videos-wrapper {
+    overflow-x:auto;    
     overflow: hidden;
-    overflow-x:auto;
     min-height: 250px;
 
     .videos-track {
@@ -86,18 +104,10 @@ iframe {
         width: 700%;
         display: flex;
     }
+    .video-card {
+        &:hover {
+            width:350px;
+        }
+    }
 }
 
-.video-card {
-    width: 320px;
-    img {width: 100%;}
-    cursor: pointer;
-    transition: width 0.3s;
-    margin-right: 1rem;
-    a:hover {
-        text-decoration: none;
-    }
-    &:hover {
-        width:480px;
-    }
-}

@@ -1,0 +1,19 @@
+.playlists {
+    a {
+        text-decoration: none;
+        
+    }
+    .card {
+        cursor: pointer;
+        color: #333;
+        background-color: #CCCCCC;
+        border: 0;
+        border-radius: 0;
+        min-height: 287px;
+        &:hover {
+            background-color: #BBB;
+        }
+
+    }
+    
+}

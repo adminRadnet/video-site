@@ -11,6 +11,17 @@ $btn-dark: #2f2f2f;
     .top-shelf {
         background-color: #1f201f;
     }
+    .playlists {
+        .card {
+            background-color: #232323;
+            &:hover {
+                background-color: #333;
+            }
+            .card-body {
+                color: white;
+            }
+        }
+    }
 
     .menu {
         .btn {

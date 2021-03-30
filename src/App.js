@@ -38,7 +38,7 @@ const App = () => {
     return video;
   })
   let filters = useSelector((state)=>state.filterData, shallowEqual)
-
+ 
   return (
       <div className={`app ${darkMode ? 'dark': ''}`}>
         <Router>
@@ -48,7 +48,10 @@ const App = () => {
               <Switch>
                 <Route path="/about" render={()=><About />}/>
                 <Route path="/video" render={()=><VideoPage videos={videos} />} />
-                <Route path="/category" render={()=><Categories />} />
+                <Route path="/category" render={()=>{
+                  
+                  return <Categories />
+                }} />
                 <Route path="/" render={()=><Home filters={filters} videos={videos} darkMode={darkMode} />} />
               </Switch>
               </Container>

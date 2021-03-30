@@ -1,25 +1,40 @@
 import React from 'react'
-import {useRouteMatch, Route, Switch} from 'react-router-dom'
+import {useRouteMatch, Route, Switch, useHistory} from 'react-router-dom'
 import {useSelector, shallowEqual} from 'react-redux'
 import Category from '../Category'
 import {replaceSpaces} from '../../lib/util'
-import {Container, Col, Row} from 'react-bootstrap'
+import {Container, Col, Row, Card} from 'react-bootstrap'
 
 export default function Categories(){
     let match = useRouteMatch()
+    let history = useHistory()
     let filterData = useSelector(state => state.filterData, shallowEqual)
-    let out = filterData.map((item, idx) => <Col sm="3" className="mt-4" key={idx}><a href={`/category/${replaceSpaces(item.name)}`}>{item.name}</a></Col>)
+    let out = filterData.map((item, idx) => 
+      <Col sm="3" className="mt-4" key={idx}>
+        <div onClick={()=>{
+          history.push(`/category/${replaceSpaces(item.name)}`)          
+        }}>
+          <Card>
+          <Card.Body className="mt-5 pt-5 text-center">
+         {item.name}
+        </Card.Body>
+        </Card>
+        </div>
+      </Col>
+    )
+
     return (
-      <div>
+      <div className="playlists">
         <Switch>
-          <Route path={`${match.path}/:categoryId`}>
-            <Category filterData={filterData} />
+          <Route path={`${match.path}/:categoryId`} render={()=>{
+            return <Category filterData={filterData} />
+          }}>
           </Route>
           <Route path={match.path}>
-            <h2>Browse Categories:</h2>
+            <h2>Browse Categories</h2>
               <Container>
               <Row>
-                {out}
+                  {out}
               </Row>
               </Container>
           </Route>

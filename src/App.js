@@ -23,6 +23,7 @@ import Home from './components/Home'
 import About from './components/About'
 import Categories from "./components/Categories"
 import VideoPage from './components/VideoPage'
+import Footer from './components/Footer'
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(true)
@@ -55,6 +56,7 @@ const App = () => {
                 <Route path="/" render={()=><Home filters={filters} videos={videos} darkMode={darkMode} />} />
               </Switch>
               </Container>
+              <Footer />
           </div>
         </Router>
       </div>

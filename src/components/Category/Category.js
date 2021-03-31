@@ -6,6 +6,7 @@ import {setFilter} from '../../actions'
 import {Container, Card, Row, Col} from 'react-bootstrap'
 import Video from '../Video/Video'
 import { filter } from 'lodash-es'
+
 let token = process.env.REACT_APP_VIMEO_TOKEN
 
 export default function Category({filterData=[]}){
@@ -45,6 +46,7 @@ export default function Category({filterData=[]}){
     
     let out = videos.length ? (
         <div className="category">
+
             <div className="text-center">
             <h2 className="mt-5 pt-5">{categoryName}</h2>
             <p className="mt-4 mb-4">{description}</p>
@@ -52,11 +54,15 @@ export default function Category({filterData=[]}){
             <Container>
                 <Row>
                 {videos.map((video, idx)=>{
-                    return <Video key={idx} video={video} isIframe={false} />
+                    return <Video key={idx} video={video} isIframe={false} className="mt-5 mb-5" />
                 })}
                 </Row>
             </Container>
         </div>
     ): 'Getting Your Videos'
-    return out
+    return (
+        <div>
+            {out}
+        </div>
+        )
 }

@@ -2,7 +2,7 @@
 import { Container, Row, Col, Card, Button, Carousel } from "react-bootstrap";
 
 import VideoTrack from "../VideoTrack";
-
+import Seo from '../../components/Seo'
 import placeholder from '../../images/placeholder.svg'
 
 
@@ -10,6 +10,7 @@ const Home = ({videos, filters, darkMode}) => {
   console.log(filters)
   return (
     <>
+      <Seo title={`Home`}/>
       <Carousel>
         <Carousel.Item>
           <img
@@ -49,7 +50,7 @@ const Home = ({videos, filters, darkMode}) => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <Container className="mt-4">
+      <Container className="mt-4 pb-5 mb-5">
         {filters.map((filter, idx) => <VideoTrack key={idx} filter={filter} />)}
       </Container>
       {/* <Container className="">

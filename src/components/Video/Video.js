@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from 'react-router-dom'
 import {nameToPermalink} from '../../lib/util'
 
-const Video = ({ video = {}, isIframe = false }) => {
+const Video = ({ video = {}, isIframe = false}) => {
   const getVideoId = (link) => {
     const retlink = link ? link.split("https://vimeo.com/")[1].split("/")[0] : "";
     return retlink;

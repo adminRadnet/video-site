@@ -1,6 +1,7 @@
 import React from 'react' 
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams, useHistory, useLocation } from "react-router-dom";
 import VideoPlayer from '../VideoPlayer/VideoPlayer'
+import Seo from '../../components/Seo'
 
 const VideosPage = ({videos}) => {
     let match = useRouteMatch()

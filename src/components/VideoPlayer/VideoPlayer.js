@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams, useHistory, useLocation } from "react-router-dom";
 import {nameToPermalink} from "../../lib/util"
-
+import Seo from '../../components/Seo'
 const VideoPlayer = ({videos}) => {
     //works if the current video playlist is "Home", but doesn't find
     //all videos
@@ -21,7 +21,7 @@ const VideoPlayer = ({videos}) => {
     //Get video from URL
     let video = (
       <>
-      
+      <Seo title={`${videoData.name}`} />
       <Link to="/"><span className="btn btn-dark mb-4">Back</span></Link>
       <iframe
         title="video-player"

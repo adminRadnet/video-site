@@ -49,7 +49,7 @@ const Home = ({videos, filters, darkMode}) => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <Container className="mt-4" fluid>
+      <Container className="mt-4">
         {filters.map((filter, idx) => <VideoTrack key={idx} filter={filter} />)}
       </Container>
       {/* <Container className="">

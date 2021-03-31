@@ -41,25 +41,24 @@ const App = () => {
   let filters = useSelector((state)=>state.filterData, shallowEqual)
  
   return (
+    <>
       <div className={`app ${darkMode ? 'dark': ''}`}>
         <Router>
-          <div>
+          <div className="main">
             <Header text="RadNet Videos" darkMode={darkMode} setDarkMode={setDarkMode} />
-            <Container className="main" fluid>
               <Switch>
                 <Route path="/about" render={()=><About />}/>
                 <Route path="/video" render={()=><VideoPage videos={videos} />} />
                 <Route path="/category" render={()=>{
-                  
                   return <Categories />
                 }} />
                 <Route path="/" render={()=><Home filters={filters} videos={videos} darkMode={darkMode} />} />
               </Switch>
-              </Container>
-              <Footer />
           </div>
         </Router>
+        <Footer className="mt-5 mb-5" />
       </div>
+      </>
   );
 };
 

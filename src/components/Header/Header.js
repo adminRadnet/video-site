@@ -5,12 +5,11 @@ import { Link } from 'react-router-dom'
 import Search from '../Search'
 
 const Header = ({text, darkMode, setDarkMode}) => (
-    <header>
+    <header className="pb-3">
         <Container fluid>
             <Row className="pt-2">
                 <Col sm="1" className={`text-left`}>
                     <Link to="/"><img className={`logo`} src={`${darkMode ? `https://cdnwest.radnet.com/brand/logo-web-white.svg`: `https://cdnwest.radnet.com/brand/logo-radnet.svg`}`} alt={text} /></Link>
-                    <p style={{fontSize:`0.4rem`}} className={`text-right pt-0 mt-0 logo-secondary`}>Videos</p>
                 </Col>
                 <Col sm="8">
                     <Search />

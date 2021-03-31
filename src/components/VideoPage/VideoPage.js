@@ -5,7 +5,7 @@ import VideoPlayer from '../VideoPlayer/VideoPlayer'
 const VideosPage = ({videos}) => {
     let match = useRouteMatch()
     return (
-      <div>
+      <div className="max-width-lg">
         <Switch>
           <Route path={`${match.path}/:videoUrl`}>
             <VideoPlayer videos={videos} />

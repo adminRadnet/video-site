@@ -24,7 +24,7 @@ export default function Categories(){
     )
 
     return (
-      <div className="playlists">
+      <div className="playlists max-width-lg">
         <Switch>
           <Route path={`${match.path}/:categoryId`} render={()=>{
             return <Category filterData={filterData} />

@@ -5,7 +5,7 @@ import {replaceSpaces, tryFn} from "../../lib/util"
 import {setFilter} from '../../actions'
 import {Container, Card, Row, Col} from 'react-bootstrap'
 import Video from '../Video/Video'
-import { filter } from 'lodash-es'
+import { filter } from 'lodash/filter';
 
 let token = process.env.REACT_APP_VIMEO_TOKEN
 
@@ -36,7 +36,7 @@ export default function Category({filterData=[]}){
             .then(res => {
                 setVideos(res.data)
             }) 
-        }else {
+        }else { 
             setVideos([])
         }
  
